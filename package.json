@@ -1,0 +1,35 @@
+{
+  "name": "masoria",
+  "displayName": "masoria",
+  "description": "Syntax Highlighter for Masoria Scripting Language",
+  "version": "0.0.1",
+  "publisher": "sum117",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "masoria",
+        "aliases": [
+          "masoria",
+          "masoria"
+        ],
+        "extensions": [
+          "masoria"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "masoria",
+        "scopeName": "source.masoria",
+        "path": "./syntaxes/masoria.tmLanguage.json"
+      }
+    ]
+  }
+}

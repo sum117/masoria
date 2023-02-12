@@ -1,0 +1,150 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "masoria",
+	"patterns": [
+		{
+			"include": "#expressions"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#keywords"
+		}
+	],
+	"repository": {
+		"expressions": {
+			"patterns": [
+				{
+					"begin": "\\[",
+					"end": "\\]",
+					"name": "constant.language.masoria"
+				},
+				{
+					"begin": "\\buse emotion\\b\\s",
+					"beginCaptures": {
+						"0": {
+							"name": "keyword.control.masoria"
+						}
+					},
+					"end": "\\n",
+					"name": "constant.language.masoria"
+				},
+				{
+					"begin": "\\b(scene|ending scene)\\b",
+					"end": ":",
+					"beginCaptures": {
+						"0": {
+							"name": "keyword.control.masoria"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "keyword.operator.masoria"
+						}
+					},
+					"patterns": [
+						{
+							"begin": "<",
+							"beginCaptures": {
+								"0": {
+									"name": "keyword.operator.masoria"
+								}
+							},
+							"end": ">",
+							"endCaptures": {
+								"0": {
+									"name": "keyword.operator.masoria"
+								}
+							},
+							"patterns": [
+								{
+									"match": "(\\w+)",
+									"name": "entity.name.function.masoria"
+								}
+							]
+						},
+						{
+							"match": "(\\w+)",
+							"name": "entity.name.tag.masoria"
+						},
+						{
+							"match": "->",
+							"name": "keyword.operator.masoria"
+						}
+					]
+				},
+				{
+					"begin": "\\bchoice\\b",
+					"beginCaptures": {
+						"0": {
+							"name": "keyword.control.masoria"
+						}
+					},
+					"end": ":",
+					"endCaptures": {
+						"0": {
+							"name": "keyword.operator.masoria"
+						}
+					},
+					"patterns": [
+						{
+							"begin": "<",
+							"beginCaptures": {
+								"0": {
+									"name": "keyword.operator.masoria"
+								}
+							},
+							"end": ">",
+							"endCaptures": {
+								"0": {
+									"name": "keyword.operator.masoria"
+								}
+							},
+							"patterns": [
+								{
+									"match": "(\\w+)",
+									"name": "entity.name.tag.masoria"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"constants": {
+			"begin": "\\b(character|emotion)\\b",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.control.masoria"
+				}
+			},
+			"end": ":",
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.masoria"
+				}
+			},
+			"patterns": [
+				{
+					"match": "(\\w+)",
+					"name": "constant.language.masoria"
+				}
+			],
+			"name": "constant.language.masoria"
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"match": "\\b(scene|ending scene|choice|use emotion|character|emotion)\\b",
+					"name": "keyword.control.masoria"
+				},
+				{
+					"match": "<|>|:",
+					"name": "keyword.operator.masoria"
+				}
+			]
+		}
+	},
+	"scopeName": "source.masoria"
+}
